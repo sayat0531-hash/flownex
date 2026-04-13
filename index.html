@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLOWNEX — Сайты, которые приводят клиентов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==============================================
+   FLOWNEX v2 — Dark Premium Studio
+   WhatsApp: найди "+77001234567"
+   Instagram: найди "flownex"
+   ============================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0c0c0b;
+  --bg2:      #111110;
+  --bg3:      #161614;
+  --surface:  #1c1c1a;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.12);
+  --text:     #e8e6e0;
+  --muted:    #6b6960;
+  --muted2:   #4a4944;
+  --gold:     #d4a853;
+  --gold2:    #f0c878;
+  --white:    #ffffff;
+  --font-h:   'Cabinet Grotesk', sans-serif;
+  --font-s:   'Instrument Serif', serif;
+  --font-m:   'Geist Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-h); font-size: 16px; line-height: 1.6; overflow-x: hidden; cursor: none; }
+
+/* CURSOR */
+#cur { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .18s, height .18s; }
+#cur-r { width: 32px; height: 32px; border: 1px solid rgba(212,168,83,.3); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: left .1s ease, top .1s ease, width .2s, height .2s, border-color .2s; }
+body:has(a:hover) #cur, body:has(button:hover) #cur { width: 10px; height: 10px; }
+body:has(a:hover) #cur-r, body:has(button:hover) #cur-r { width: 48px; height: 48px; border-color: var(--gold); }
+
+/* GRAIN */
+body::after { content:''; position:fixed; inset:0; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:900; opacity:.4; }
+
+/* ── NAV ── */
+nav { position:fixed; top:0; left:0; right:0; z-index:800; padding:1.2rem 2.5rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid transparent; transition: all .3s; }
+nav.scrolled { background:rgba(12,12,11,.88); backdrop-filter:blur(20px); border-color:var(--border); }
+.n-logo { font-family:var(--font-h); font-size:17px; font-weight:900; letter-spacing:.1em; color:var(--white); text-decoration:none; }
+.n-logo em { font-style:normal; color:var(--gold); }
+.n-links { display:flex; gap:2rem; list-style:none; }
+.n-links a { font-size:13px; font-weight:500; color:var(--muted); text-decoration:none; letter-spacing:.02em; transition:color .2s; }
+.n-links a:hover { color:var(--text); }
+.n-btn { background:var(--gold); color:var(--bg); font-family:var(--font-h); font-size:13px; font-weight:700; padding:9px 20px; border-radius:6px; border:none; cursor:none; letter-spacing:.03em; transition:all .2s; text-decoration:none; }
+.n-btn:hover { background:var(--gold2); }
+
+/* ── HERO ── */
+.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 2.5rem 5rem; position:relative; overflow:hidden; }
+.hero-img { position:absolute; inset:0; }
+.hero-img img { width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:brightness(.35); }
+.hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, var(--bg) 0%, rgba(12,12,11,.6) 40%, transparent 100%); }
+.hero-inner { position:relative; z-index:2; max-width:1100px; margin:0 auto; width:100%; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:10px; margin-bottom:2rem; }
+.hero-pill { background:rgba(212,168,83,.12); border:1px solid rgba(212,168,83,.25); color:var(--gold); font-family:var(--font-m); font-size:11px; padding:5px 14px; border-radius:4px; letter-spacing:.08em; }
+.hero-status { font-family:var(--font-m); font-size:11px; color:var(--muted); letter-spacing:.06em; }
+.hero h1 { font-family:var(--font-h); font-size:clamp(48px,8.5vw,110px); font-weight:900; line-height:.92; letter-spacing:-.04em; margin-bottom:2rem; }
+.hero h1 .serif { font-family:var(--font-s); font-style:italic; font-weight:400; color:var(--gold); }
+.hero-foot { display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.hero-sub { font-size:clamp(14px,1.6vw,17px); color:var(--muted); max-width:400px; line-height:1.7; font-weight:400; }
+.hero-btns { display:flex; gap:12px; flex-shrink:0; }
+.btn-g { background:var(--gold); color:var(--bg); font-family:var(--font-h); font-size:14px; font-weight:700; padding:14px 28px; border-radius:6px; border:none; cursor:none; letter-spacing:.02em; transition:all .2s; text-decoration:none; display:inline-block; }
+.btn-g:hover { background:var(--gold2); transform:translateY(-2px); }
+.btn-o { background:transparent; color:var(--text); font-family:var(--font-h); font-size:14px; font-weight:500; padding:13px 24px; border-radius:6px; border:1px solid var(--border2); cursor:none; transition:all .2s; text-decoration:none; display:inline-block; }
+.btn-o:hover { border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.04); }
+.hero-scroll-hint { position:absolute; bottom:2.5rem; right:2.5rem; z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.scroll-track { width:1px; height:48px; background:var(--border2); position:relative; overflow:hidden; }
+.scroll-dot { width:1px; height:16px; background:var(--gold); position:absolute; top:-16px; animation:scrollAnim 1.6s ease-in-out infinite; }
+@keyframes scrollAnim { to { top:48px; } }
+.hero-scroll-hint span { font-family:var(--font-m); font-size:9px; color:var(--muted2); letter-spacing:.15em; writing-mode:vertical-rl; }
+
+/* ── MARQUEE ── */
+.mq { overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:.9rem 0; background:var(--bg2); }
+.mq-t { display:flex; white-space:nowrap; animation:mq 22s linear infinite; }
+.mq-t:hover { animation-play-state:paused; }
+.mq-i { display:inline-flex; align-items:center; gap:20px; padding:0 20px; font-family:var(--font-m); font-size:11px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted2); }
+.mq-i .s { color:var(--gold); font-size:14px; }
+@keyframes mq { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── LAYOUT ── */
+.wrap { max-width:1100px; margin:0 auto; padding:0 2.5rem; }
+.sec { padding:7rem 0; }
+.sec-tag { font-family:var(--font-m); font-size:10px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:block; }
+.sec-title { font-family:var(--font-h); font-size:clamp(28px,4vw,48px); font-weight:900; letter-spacing:-.03em; line-height:1.05; margin-bottom:1rem; }
+.sec-title .s { font-family:var(--font-s); font-style:italic; font-weight:400; color:var(--muted); }
+.sec-sub { font-size:16px; color:var(--muted); font-weight:400; line-height:1.7; max-width:480px; }
+
+/* ── ABOUT ── */
+.about-g { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.about-nums { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-top:2.5rem; }
+.an { background:var(--bg2); padding:1.5rem; }
+.an-n { font-family:var(--font-h); font-size:38px; font-weight:900; color:var(--white); line-height:1; letter-spacing:-.03em; }
+.an-n sup { font-size:18px; color:var(--gold); }
+.an-l { font-size:12px; color:var(--muted); margin-top:4px; font-weight:400; }
+.about-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:2rem; overflow:hidden; position:relative; }
+.about-card::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background:radial-gradient(circle, rgba(212,168,83,.08) 0%, transparent 70%); }
+.ac-label { font-family:var(--font-m); font-size:10px; letter-spacing:.15em; color:var(--gold); margin-bottom:1.2rem; display:block; }
+.ac-title { font-family:var(--font-h); font-size:22px; font-weight:800; line-height:1.2; margin-bottom:.8rem; }
+.ac-body { font-size:14px; color:var(--muted); line-height:1.7; font-weight:400; margin-bottom:1.5rem; }
+.ac-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.ac-list li { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text); }
+.ac-list li::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+/* ── SERVICES ── */
+.services-bg { background:var(--bg2); }
+.srv-g { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border-radius:12px; overflow:hidden; border:1px solid var(--border); margin-top:3rem; }
+.srv { background:var(--bg2); padding:2.5rem 2rem; transition:background .25s; position:relative; overflow:hidden; cursor:none; }
+.srv:hover { background:var(--bg3); }
+.srv::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(to right, var(--gold), transparent); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+.srv:hover::after { transform:scaleX(1); }
+.srv-ico { width:44px; height:44px; border-radius:8px; background:rgba(212,168,83,.08); border:1px solid rgba(212,168,83,.15); display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; }
+.srv-ico svg { width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.srv-n { font-family:var(--font-m); font-size:10px; color:var(--muted2); letter-spacing:.1em; margin-bottom:.6rem; }
+.srv-name { font-family:var(--font-h); font-size:21px; font-weight:800; letter-spacing:-.02em; margin-bottom:.7rem; }
+.srv-desc { font-size:13px; color:var(--muted); line-height:1.65; font-weight:400; margin-bottom:1.5rem; }
+.srv-chips { display:flex; flex-wrap:wrap; gap:5px; }
+.chip { font-size:11px; color:var(--muted); border:1px solid var(--border); padding:3px 9px; border-radius:4px; }
+
+/* ── CASES ── */
+.cases-g { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3.5rem; }
+.case { background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:all .3s; cursor:none; }
+.case:hover { border-color:var(--border2); transform:translateY(-4px); }
+.case.big { grid-row:span 2; display:flex; flex-direction:column; }
+.case-photo { height:220px; overflow:hidden; position:relative; flex-shrink:0; }
+.case.big .case-photo { height:300px; }
+.case-photo img { width:100%; height:100%; object-fit:cover; transition:transform .5s; filter:brightness(.85); }
+.case:hover .case-photo img { transform:scale(1.04); }
+.case-photo-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(12,12,11,.7) 0%, transparent 60%); }
+.case-photo-tag { position:absolute; top:14px; left:14px; background:rgba(12,12,11,.7); backdrop-filter:blur(8px); border:1px solid var(--border2); color:var(--gold); font-family:var(--font-m); font-size:10px; padding:4px 10px; border-radius:4px; letter-spacing:.08em; }
+.case-body { padding:1.5rem; flex:1; display:flex; flex-direction:column; }
+.case-title { font-family:var(--font-h); font-size:20px; font-weight:800; letter-spacing:-.02em; margin-bottom:.5rem; }
+.case-desc { font-size:13px; color:var(--muted); line-height:1.65; margin-bottom:1.2rem; flex:1; }
+.case-nums { display:flex; gap:1.5rem; padding-top:1rem; border-top:1px solid var(--border); }
+.cn-n { font-family:var(--font-h); font-size:22px; font-weight:900; color:var(--white); line-height:1; letter-spacing:-.02em; }
+.cn-l { font-size:11px; color:var(--muted); margin-top:3px; }
+
+/* ── BENEFITS ── */
+.ben-g { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:3rem; }
+.ben { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.8rem 1.4rem; transition:all .25s; cursor:none; }
+.ben:hover { border-color:rgba(212,168,83,.2); background:var(--bg3); }
+.ben-ico { font-size:26px; display:block; margin-bottom:1.1rem; }
+.ben-title { font-family:var(--font-h); font-size:15px; font-weight:800; letter-spacing:-.01em; margin-bottom:5px; }
+.ben-desc { font-size:13px; color:var(--muted); line-height:1.6; }
+
+/* ── PROCESS ── */
+.proc-bg { background:var(--bg2); }
+.proc-g { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:3.5rem; position:relative; }
+.proc-g::before { content:''; position:absolute; top:22px; left:12%; right:12%; height:1px; background:linear-gradient(to right, transparent, rgba(212,168,83,.2), rgba(212,168,83,.2), transparent); }
+.proc-s { text-align:center; padding:0 1rem; position:relative; z-index:1; }
+.proc-num { width:44px; height:44px; border-radius:50%; border:1px solid rgba(212,168,83,.25); background:var(--bg2); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; font-family:var(--font-m); font-size:12px; color:var(--gold); font-weight:500; }
+.proc-title { font-family:var(--font-h); font-size:15px; font-weight:800; letter-spacing:-.01em; margin-bottom:6px; }
+.proc-desc { font-size:12px; color:var(--muted); line-height:1.6; }
+
+/* ── CTA ── */
+.cta-bg { background:var(--bg); position:relative; overflow:hidden; }
+.cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(212,168,83,.06) 0%, transparent 65%); pointer-events:none; }
+.cta-inner { text-align:center; max-width:680px; margin:0 auto; position:relative; z-index:2; }
+.cta-inner .sec-title { font-size:clamp(36px,5.5vw,66px); margin-bottom:1.2rem; }
+.cta-inner .sec-sub { font-size:17px; max-width:420px; margin:0 auto 2.5rem; }
+.wa-btn { display:inline-flex; align-items:center; gap:10px; background:var(--gold); color:var(--bg); font-family:var(--font-h); font-size:15px; font-weight:700; padding:16px 32px; border-radius:6px; border:none; cursor:none; transition:all .25s; text-decoration:none; letter-spacing:.02em; }
+.wa-btn:hover { background:var(--gold2); transform:translateY(-3px); box-shadow:0 16px 48px rgba(212,168,83,.2); }
+.wa-btn svg { width:20px; height:20px; fill:#25D366; flex-shrink:0; }
+.cta-note { font-family:var(--font-m); font-size:11px; color:var(--muted2); margin-top:1.2rem; letter-spacing:.06em; }
+
+/* ── FOOTER ── */
+footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem 2.5rem; }
+.f-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.f-logo { font-family:var(--font-h); font-size:16px; font-weight:900; letter-spacing:.1em; color:var(--white); }
+.f-logo em { font-style:normal; color:var(--gold); }
+.f-copy { font-family:var(--font-m); font-size:11px; color:var(--muted2); letter-spacing:.04em; }
+.f-links { display:flex; gap:1.5rem; }
+.f-links a { font-size:13px; color:var(--muted); text-decoration:none; transition:color .2s; font-weight:400; }
+.f-links a:hover { color:var(--text); }
+
+/* ── REVEAL ── */
+.rv { opacity:0; transform:translateY(24px); transition:opacity .65s ease, transform .65s ease; }
+.rv.on { opacity:1; transform:none; }
+.d1 { transition-delay:.08s; } .d2 { transition-delay:.16s; } .d3 { transition-delay:.24s; } .d4 { transition-delay:.32s; }
+
+/* ── MOBILE ── */
+@media(max-width:860px){
+  body { cursor:auto; }
+  #cur, #cur-r { display:none; }
+  nav { padding:1rem 1.2rem; }
+  .n-links { display:none; }
+  .hero { padding:0 1.2rem 4rem; }
+  .wrap { padding:0 1.2rem; }
+  .sec { padding:4.5rem 0; }
+  .about-g { grid-template-columns:1fr; gap:3rem; }
+  .srv-g { grid-template-columns:1fr; }
+  .cases-g { grid-template-columns:1fr; }
+  .case.big { grid-row:auto; }
+  .ben-g { grid-template-columns:1fr 1fr; gap:.8rem; }
+  .proc-g { grid-template-columns:1fr 1fr; gap:2rem; }
+  .proc-g::before { display:none; }
+  .hero-scroll-hint { display:none; }
+  .hero h1 { letter-spacing:-.03em; }
+  .hero-foot { flex-direction:column; }
+  footer { padding:1.5rem 1.2rem; }
+  .f-inner { flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="n-logo" href="#">FLOW<em>NEX</em></a>
+  <ul class="n-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#cases">Кейсы</a></li>
+    <li><a href="#process">Процесс</a></li>
+    <li><a href="#cta">Контакты</a></li>
+  </ul>
+  <!-- КОНТАКТ — замени номер WhatsApp -->
+  <a class="n-btn" href="https://wa.me/77001234567" target="_blank">Написать</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1800&q=85" alt="Design workspace">
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-track"><div class="scroll-dot"></div></div>
+    <span>SCROLL</span>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow rv">
+      <span class="hero-pill">FLOWNEX STUDIO</span>
+      <!-- ТЕКСТ — статус -->
+      <span class="hero-status">· ОТКРЫТ ДЛЯ ПРОЕКТОВ</span>
+    </div>
+    <!-- ТЕКСТ — главный заголовок -->
+    <h1 class="rv d1">
+      Сайты,<br>которые<br><span class="serif">приводят</span><br>клиентов
+    </h1>
+    <div class="hero-foot rv d2">
+      <!-- ТЕКСТ — подзаголовок -->
+      <p class="hero-sub">Создаю лендинги для малого бизнеса в Казахстане. Быстро, красиво — с фокусом на заявки через WhatsApp.</p>
+      <div class="hero-btns">
+        <a class="btn-g" href="https://wa.me/77001234567" target="_blank">Получить демо</a>
+        <a class="btn-o" href="#cases">Смотреть кейсы</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-t">
+    <span class="mq-i">Landing Pages <span class="s">✦</span></span>
+    <span class="mq-i">WhatsApp Booking <span class="s">✦</span></span>
+    <span class="mq-i">Business Websites <span class="s">✦</span></span>
+    <span class="mq-i">Premium Design <span class="s">✦</span></span>
+    <span class="mq-i">1–2 Days Delivery <span class="s">✦</span></span>
+    <span class="mq-i">Mobile First <span class="s">✦</span></span>
+    <span class="mq-i">Almaty · Kazakhstan <span class="s">✦</span></span>
+    <span class="mq-i">Landing Pages <span class="s">✦</span></span>
+    <span class="mq-i">WhatsApp Booking <span class="s">✦</span></span>
+    <span class="mq-i">Business Websites <span class="s">✦</span></span>
+    <span class="mq-i">Premium Design <span class="s">✦</span></span>
+    <span class="mq-i">1–2 Days Delivery <span class="s">✦</span></span>
+    <span class="mq-i">Mobile First <span class="s">✦</span></span>
+    <span class="mq-i">Almaty · Kazakhstan <span class="s">✦</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-g">
+      <div>
+        <span class="sec-tag rv">О студии</span>
+        <h2 class="sec-title rv d1">Делаю сайты,<br><span class="s">которые работают</span></h2>
+        <!-- ТЕКСТ — описание студии -->
+        <p class="sec-sub rv d2" style="margin-bottom:1rem">FLOWNEX — студия, которая помогает малому бизнесу получать клиентов через современные сайты. Не просто красиво — а так, чтобы приносило реальные заявки.</p>
+        <p class="sec-sub rv d2">Специализируюсь на конверсионных лендингах с фокусом на результат: заявки и записи через WhatsApp.</p>
+        <div class="about-nums rv d3">
+          <div class="an"><div class="an-n">10<sup>+</sup></div><div class="an-l">Проектов сделано</div></div>
+          <div class="an"><div class="an-n">1–2<sup>дн</sup></div><div class="an-l">Срок разработки</div></div>
+          <div class="an"><div class="an-n">+40<sup>%</sup></div><div class="an-l">Рост заявок в среднем</div></div>
+          <div class="an"><div class="an-n">100<sup>%</sup></div><div class="an-l">Адаптация под мобильный</div></div>
+        </div>
+      </div>
+      <div class="rv d2">
+        <div class="about-card">
+          <span class="ac-label">FLOWNEX — подход</span>
+          <div class="ac-title">Ваш сайт — это<br>продающий инструмент</div>
+          <div class="ac-body">Не просто визитка, а система привлечения клиентов. Каждый блок сайта ведёт к одному действию — заявке.</div>
+          <ul class="ac-list">
+            <li>Конверсионная структура под вашу нишу</li>
+            <li>WhatsApp кнопка и форма заявки</li>
+            <li>Быстрая загрузка на любом устройстве</li>
+            <li>Готово к запуску за 1–2 дня</li>
+            <li>Правки после запуска включены</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec services-bg" id="services">
+  <div class="wrap">
+    <span class="sec-tag rv">Услуги</span>
+    <h2 class="sec-title rv d1">Что я делаю</h2>
+    <div class="srv-g">
+      <!-- УСЛУГА 1 -->
+      <div class="srv rv">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="srv-n">01 / УСЛУГА</div>
+        <div class="srv-name">Landing Pages</div>
+        <div class="srv-desc">Конверсионные лендинги для малого бизнеса. Структура заточена под заявки — каждый блок ведёт к кнопке WhatsApp.</div>
+        <div class="srv-chips">
+          <span class="chip">Барбершопы</span><span class="chip">Салоны</span><span class="chip">Кафе</span><span class="chip">Мастера</span>
+        </div>
+      </div>
+      <!-- УСЛУГА 2 -->
+      <div class="srv rv d1">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="srv-n">02 / УСЛУГА</div>
+        <div class="srv-name">WhatsApp Booking</div>
+        <div class="srv-desc">Система онлайн-записи через WhatsApp. Клиенты выбирают время — заявка приходит мгновенно. Без лишних приложений.</div>
+        <div class="srv-chips">
+          <span class="chip">Запись онлайн</span><span class="chip">Без приложений</span><span class="chip">Авто-уведомления</span>
+        </div>
+      </div>
+      <!-- УСЛУГА 3 -->
+      <div class="srv rv d2">
+        <div class="srv-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>
+        </div>
+        <div class="srv-n">03 / УСЛУГА</div>
+        <div class="srv-name">Business Websites</div>
+        <div class="srv-desc">Многостраничные сайты для компаний с портфолио, услугами и контактами. Премиальный дизайн — высокое доверие.</div>
+        <div class="srv-chips">
+          <span class="chip">Компании</span><span class="chip">Портфолио</span><span class="chip">Мультистраничный</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <span class="sec-tag rv">Кейсы</span>
+    <h2 class="sec-title rv d1">Реальные <span class="s">проекты</span></h2>
+    <div class="cases-g">
+
+      <!-- КЕЙС 1 — большой -->
+      <div class="case big rv">
+        <div class="case-photo">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Beauty Studio">
+          <div class="case-photo-overlay"></div>
+          <span class="case-photo-tag">BEAUTY STUDIO · ТАРАЗ</span>
+        </div>
+        <div class="case-body">
+          <!-- ТЕКСТ — кейс 1 -->
+          <div class="case-title">Студия красоты Lumière</div>
+          <div class="case-desc">Лендинг с онлайн-записью через WhatsApp. Простая структура: услуги, портфолио мастеров, форма записи. Хаос в Директе закончился — все заявки идут через сайт.</div>
+          <div class="case-nums">
+            <div><div class="cn-n">+40%</div><div class="cn-l">заявок через WhatsApp</div></div>
+            <div><div class="cn-n">2 дня</div><div class="cn-l">срок разработки</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- КЕЙС 2 -->
+      <div class="case rv d1">
+        <div class="case-photo">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Barbershop">
+          <div class="case-photo-overlay"></div>
+          <span class="case-photo-tag">BARBERSHOP · АЛМАТЫ</span>
+        </div>
+        <div class="case-body">
+          <div class="case-title">Barbershop BLADE</div>
+          <div class="case-desc">Онлайн-запись вместо хаоса в Instagram. Мастера знают расписание заранее.</div>
+          <div class="case-nums">
+            <div><div class="cn-n">×3</div><div class="cn-l">больше записей</div></div>
+            <div><div class="cn-n">1 день</div><div class="cn-l">разработка</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- КЕЙС 3 -->
+      <div class="case rv d2">
+        <div class="case-photo">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80" alt="Nail Studio">
+          <div class="case-photo-overlay"></div>
+          <span class="case-photo-tag">NAIL MASTER · ТАРАЗ</span>
+        </div>
+        <div class="case-body">
+          <div class="case-title">Nail Studio by Aida</div>
+          <div class="case-desc">Личный сайт мастера маникюра. Премиальный стиль поднял ценность в глазах клиентов.</div>
+          <div class="case-nums">
+            <div><div class="cn-n">+60%</div><div class="cn-l">новых клиентов</div></div>
+            <div><div class="cn-n">+25%</div><div class="cn-l">средний чек</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="sec services-bg">
+  <div class="wrap">
+    <span class="sec-tag rv">Почему FLOWNEX</span>
+    <h2 class="sec-title rv d1">Не просто сайт —<br><span class="s">инструмент роста</span></h2>
+    <div class="ben-g">
+      <div class="ben rv"><span class="ben-ico">⚡</span><div class="ben-title">1–2 дня</div><div class="ben-desc">Быстрая разработка без потери качества.</div></div>
+      <div class="ben rv d1"><span class="ben-ico">🎯</span><div class="ben-title">Фокус на заявки</div><div class="ben-desc">Каждый элемент заточен под конверсию.</div></div>
+      <div class="ben rv d2"><span class="ben-ico">✦</span><div class="ben-title">Premium дизайн</div><div class="ben-desc">Уровень Stripe и Apple для вашего бизнеса.</div></div>
+      <div class="ben rv d3"><span class="ben-ico">📱</span><div class="ben-title">Mobile-first</div><div class="ben-desc">Идеально на любом экране — 80% клиентов с телефона.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec proc-bg" id="process">
+  <div class="wrap">
+    <span class="sec-tag rv">Процесс</span>
+    <h2 class="sec-title rv d1">Как мы работаем</h2>
+    <div class="proc-g">
+      <div class="proc-s rv"><div class="proc-num">01</div><div class="proc-title">Анализ бизнеса</div><div class="proc-desc">Изучаю нишу, аудиторию и цели. Что нужно донести клиенту?</div></div>
+      <div class="proc-s rv d1"><div class="proc-num">02</div><div class="proc-title">Дизайн и структура</div><div class="proc-desc">Разрабатываю структуру и дизайн под вашу нишу.</div></div>
+      <div class="proc-s rv d2"><div class="proc-num">03</div><div class="proc-title">Разработка</div><div class="proc-desc">Верстаю сайт за 1–2 дня. Полная адаптация под мобильные.</div></div>
+      <div class="proc-s rv d3"><div class="proc-num">04</div><div class="proc-title">Запуск</div><div class="proc-desc">Выкладываем онлайн. Правки и поддержка включены.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta-bg" id="cta">
+  <div class="cta-glow"></div>
+  <div class="wrap">
+    <div class="cta-inner">
+      <span class="sec-tag rv">Старт</span>
+      <!-- ТЕКСТ — CTA -->
+      <h2 class="sec-title rv d1">Хочешь такой же сайт<br><span class="s">для своего бизнеса?</span></h2>
+      <p class="sec-sub rv d2">Напишите в WhatsApp — обсудим проект, покажу примеры и назову цену. Бесплатно.</p>
+      <!-- КОНТАКТ — WhatsApp -->
+      <a class="wa-btn rv d3" href="https://wa.me/77001234567" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Написать в WhatsApp
+      </a>
+      <p class="cta-note rv">ОТВЕЧАЮ В ТЕЧЕНИЕ ЧАСА · БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-inner">
+    <div class="f-logo">FLOW<em>NEX</em></div>
+    <div class="f-copy">© 2025 FLOWNEX · САЙТЫ ДЛЯ МАЛОГО БИЗНЕСА</div>
+    <!-- КОНТАКТ — ссылки -->
+    <div class="f-links">
+      <a href="https://instagram.com/flownex" target="_blank">Instagram</a>
+      <a href="https://wa.me/77001234567" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const cur = document.getElementById('cur');
+const curR = document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+});
+(function anim(){
+  rx+=(mx-rx)*.11; ry+=(my-ry)*.11;
+  curR.style.left=rx+'px'; curR.style.top=ry+'px';
+  requestAnimationFrame(anim);
+})();
+
+// NAV scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled', scrollY>60);
+});
+
+// REVEAL
+const obs = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
